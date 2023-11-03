@@ -1,0 +1,402 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model CIMGMGTB {
+  IMG_SEQ      String  @db.VarChar(10)
+  IMG_FG       String  @db.VarChar(1)
+  PATH_NM      String? @db.VarChar(60)
+  FILE_NM      String? @db.VarChar(50)
+  CONTENTS     String? @db.VarChar(1000)
+  CREATE_DTIME String? @db.VarChar(14)
+  CREATE_ID    String? @db.VarChar(20)
+  LAST_DTIME   String? @db.VarChar(14)
+  LAST_ID      String? @db.VarChar(20)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model EMPINFTB {
+  EMP_NO            String   @db.Char(4)
+  EMP_NM            String   @db.VarChar(10)
+  DEPT_CD           String?  @db.Char(2)
+  TEAM_CD           String?  @db.Char(2)
+  INLINE            String?  @db.Char(3)
+  HP_NO             String   @db.VarChar(15)
+  TEL_NO            String?  @db.VarChar(15)
+  E_MAIL            String?  @db.VarChar(50)
+  SEX               String?  @db.Char(1)
+  STATUS_FG         String?  @db.Char(1)
+  BIRTH_DAY         String?  @db.Char(8)
+  LS_FG             String?  @db.Char(1)
+  START_DATE        String?  @db.Char(8)
+  END_DATE          String?  @db.Char(8)
+  CLASS_FG          String?  @db.VarChar(1)
+  ROLL_FG           String?  @db.Char(1)
+  PHOTO             String?  @db.VarChar(20)
+  CREATE_DATE       String?  @db.Char(8)
+  LAST_DATE         String?  @db.Char(8)
+  USER_ID           String?  @db.VarChar(20)
+  SAWON_FG          String?  @db.Char(1)
+  EDIT_FG           String?  @db.Char(1)
+  CONFIRM_FG        String?  @db.Char(1)
+  ZIP_NO            String?  @db.VarChar(6)
+  ADDRESS           String?  @db.VarChar(100)
+  ADDRESS_BUNJI     String?  @db.VarChar(100)
+  EMERGENCY_TEL     String?  @db.VarChar(15)
+  PASSWD            String?  @db.VarChar(80)
+  IPCONTROL_FG      String?  @db.VarChar(20)
+  CHANGE_PW_DATE    String?  @db.VarChar(8)
+  PG_ADMIN_FG       String?  @db.Char(1)
+  LAST_LOGIN_DATE   String?  @db.VarChar(8)
+  PSS_POINT         Decimal? @db.Decimal(3, 0)
+  USE_POINT         Decimal? @db.Decimal(3, 0)
+  LOS_POINT         Decimal? @db.Decimal(3, 0)
+  LAT_POINT         Decimal? @db.Decimal(3, 0)
+  GRADE_FG          String?  @db.VarChar(1)
+  EMP_LEVEL         String?  @db.VarChar(1)
+  PASSWD_RESET_FG   String?  @db.VarChar(1)
+  OLD_PASSWD        String?  @db.VarChar(60)
+  NEW_ZIP_NO        String?  @db.VarChar(10)
+  NEW_ADDRESS       String?  @db.VarChar(120)
+  NEW_ADDRESS_BUNJI String?  @db.VarChar(120)
+  STREET_FG         String?  @db.VarChar(1)
+  MAIN_TECH_FG      String?  @db.VarChar(1)
+  TIME_FG           String?  @db.Char(1)
+  CREATE_DTIME      String?  @db.VarChar(14)
+  CREATE_ID         String?  @db.VarChar(20)
+  LAST_DTIME        String?  @db.VarChar(14)
+  LAST_ID           String?  @db.VarChar(20)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model GMBNCMTB {
+  USER_ID      String  @db.VarChar(20)
+  MM_ID        String  @db.Char(2)
+  MM_NM        String  @db.VarChar(20)
+  IMG_SEQ      String  @db.VarChar(10)
+  POS_ID       String  @db.Char(2)
+  CREATE_DTIME String? @db.VarChar(14)
+  CREATE_ID    String? @db.VarChar(20)
+  LAST_DTIME   String? @db.VarChar(14)
+  LAST_ID      String? @db.VarChar(20)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model GMBNCUTB {
+  USER_ID      String  @db.VarChar(20)
+  MM_ID        String  @db.Char(2)
+  MENU_SEQ     String  @db.Char(6)
+  CREATE_DTIME String? @db.VarChar(14)
+  CREATE_ID    String? @db.VarChar(20)
+  LAST_DTIME   String? @db.VarChar(14)
+  LAST_ID      String? @db.VarChar(20)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model GMBNMGTB {
+  MM_ID        String  @db.Char(2)
+  GM_ID        String  @db.Char(2)
+  GM_NM        String  @db.VarChar(60)
+  POS_ID       String  @db.Char(2)
+  CREATE_DTIME String? @db.VarChar(14)
+  CREATE_ID    String? @db.VarChar(20)
+  LAST_DTIME   String? @db.VarChar(14)
+  LAST_ID      String? @db.VarChar(20)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model GMBNMMTB {
+  MM_ID        String  @db.Char(2)
+  MM_NM        String  @db.VarChar(20)
+  IMG_SEQ      String  @db.VarChar(10)
+  POS_ID       String  @db.Char(2)
+  CREATE_DTIME String? @db.VarChar(14)
+  CREATE_ID    String? @db.VarChar(20)
+  LAST_DTIME   String? @db.VarChar(14)
+  LAST_ID      String? @db.VarChar(20)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model GMBNMSTB {
+  MENU_SEQ     String  @db.Char(6)
+  MM_ID        String  @db.Char(2)
+  GM_ID        String  @db.Char(2)
+  SM_ID        String  @db.Char(2)
+  SM_NM        String  @db.VarChar(60)
+  PATH_NM      String  @db.VarChar(60)
+  FILE_NM      String  @db.VarChar(50)
+  POS_ID       String  @db.Char(2)
+  CREATE_DTIME String? @db.VarChar(14)
+  CREATE_ID    String? @db.VarChar(20)
+  LAST_DTIME   String? @db.VarChar(14)
+  LAST_ID      String? @db.VarChar(20)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model GMBNMUTB {
+  USER_ID      String  @db.VarChar(20)
+  MENU_SEQ     String  @db.Char(6)
+  CREATE_DTIME String? @db.VarChar(14)
+  CREATE_ID    String? @db.VarChar(20)
+  LAST_DTIME   String? @db.VarChar(14)
+  LAST_ID      String? @db.VarChar(20)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model GWDEPTTB {
+  DEPT_CD      String  @db.Char(2)
+  DEPT_NM      String  @db.VarChar(30)
+  SEQ          String? @db.Char(2)
+  CREATE_DTIME String? @db.VarChar(14)
+  CREATE_ID    String? @db.VarChar(20)
+  LAST_DTIME   String? @db.VarChar(14)
+  LAST_ID      String? @db.VarChar(20)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model GWTEAMTB {
+  DEPT_CD      String  @db.Char(2)
+  TEAM_CD      String  @db.Char(2)
+  DEPT_NM      String  @db.VarChar(30)
+  SEQ          String? @db.Char(2)
+  CREATE_DTIME String? @db.VarChar(14)
+  CREATE_ID    String? @db.VarChar(20)
+  LAST_DTIME   String? @db.VarChar(14)
+  LAST_ID      String? @db.VarChar(20)
+
+  @@ignore
+}
+
+model agencytb {
+  agency_no     String  @id @db.VarChar(6)
+  address       String? @db.VarChar(60)
+  address_bunji String? @db.VarChar(50)
+  agency_fg     String  @db.VarChar(1)
+  agency_nm     String  @db.VarChar(30)
+  biz_fg        String? @db.VarChar(1)
+  biz_nm        String? @db.VarChar(30)
+  biz_no        String? @db.VarChar(10)
+  bs_kind       String? @db.VarChar(30)
+  bs_type       String? @db.VarChar(30)
+  create_dtime  String  @db.VarChar(14)
+  create_id     String  @db.VarChar(8)
+  e_mail        String? @db.VarChar(30)
+  emg_no        String? @db.VarChar(15)
+  fax_no        String? @db.VarChar(15)
+  homepage      String? @db.VarChar(50)
+  hp_no         String? @db.VarChar(15)
+  last_dtime    String  @db.VarChar(14)
+  last_id       String  @db.VarChar(8)
+  master_nm     String  @db.VarChar(10)
+  open_date     String? @db.VarChar(8)
+  tel_no        String? @db.VarChar(15)
+  use_yn        String? @db.VarChar(1)
+  zip_no        String? @db.VarChar(6)
+}
+
+model MCODEMTB {
+	CODE_FG String @db.VarChar(3)
+	CODE String @db.VarChar(3)
+	CODE_IDX String? @db.VarChar(3)
+	CODE_NM String? @db.VarChar(50) 
+	CODE_SNM String? @db.VarChar(50) 
+	CODE_ETC String? @db.VarChar(20) 
+	USE_YN String @db.VarChar(1) 
+	REMARK String? @db.VarChar(1000)
+	CREATE_DTIME String @db.VarChar(14)
+	CREATE_ID String @db.VarChar(20)
+	LAST_ID String @db.VarChar(20)
+	LAST_DTIME String @db.VarChar(14)
+
+  @@ignore
+}
+
+model MDEVCFTB {
+	MS_NO String @db.VarChar(10)
+	DEVICE_FG String @db.VarChar(1)
+	MS_NM String? @db.VarChar(50)
+	DEVICE_CNT Int
+	ORD_STATUS_MGR String? @db.VarChar(1)
+	ORD_TYPE String? @db.VarChar(3)
+	ETC_TYPE String? @db.VarChar(3)
+	ORD_STATUS String? @db.VarChar(3)
+	ELAPSED_TIME_RGB String? @db.VarChar(3)
+	CONTROLLER_IP String? @db.VarChar(15)
+	CONTROLLER_PORT String? @db.VarChar(10)
+	SPLIT_SCREEN String? @db.VarChar(2)
+	RELOAD_INTERVAL Int
+	BG_IMG_TYPE String? @db.VarChar(1)
+	CREATE_DTIME String @db.VarChar(14)
+	CREATE_ID String @db.VarChar(20)
+	LAST_ID String @db.VarChar(20)
+	LAST_DTIME String @db.VarChar(14)
+
+  @@ignore
+}
+
+model MMSSECTB {
+	MS_NO String @db.VarChar(10)
+	SEC_NO String @db.VarChar(2)
+	SEC_NM String? @db.VarChar(20)
+	SEC_TYPE String? @db.VarChar(1)
+	CREATE_DTIME String @db.VarChar(14)
+	CREATE_ID String @db.VarChar(20)
+	LAST_ID String @db.VarChar(20)
+	LAST_DTIME String @db.VarChar(14)
+
+  @@ignore
+}
+
+model MSECGDTB {
+	MS_NO String @db.VarChar(10)
+	SEC_NO String @db.VarChar(2)
+	GOODS_CD String @db.VarChar(20)
+	CREATE_DTIME String @db.VarChar(14)
+	CREATE_ID String @db.VarChar(20)
+	LAST_ID String @db.VarChar(20)
+	LAST_DTIME String @db.VarChar(14)
+	
+  @@ignore	
+}
+
+model SORDDTTB {
+	SALE_DATE String @db.VarChar(8)
+	ORD_UID String @db.VarChar(30)
+	LINE_NO String @db.VarChar(5)
+	ORD_ITEM_UID String? @db.VarChar(30)
+	ORD_STATUS String @db.VarChar(1)
+	GOODS_CD String? @db.VarChar(20)
+	GOODS_NM String? @db.VarChar(200)
+	GOODS_ORDER_TYPE String? @db.VarChar(1)
+	GOODS_QTY Int
+	CUSTOM_INFO String? @db.VarChar(400)
+	UPPER_GOODS_UID String? @db.VarChar(30)
+	ROOT_GOODS_UID String? @db.VarChar(30)
+	ORD_ORDERED_TIME String? @db.VarChar(14)
+	ORD_ACCEPTED_TIME String? @db.VarChar(14)
+	ORD_PREPARED_TIME String? @db.VarChar(14)
+	ORD_SERVED_TIME String? @db.VarChar(14)
+	ORD_CANCELLED_TIME String? @db.VarChar(14)
+	CREATE_DTIME String @db.VarChar(14)
+	CREATE_ID String @db.VarChar(20)
+	LAST_ID String @db.VarChar(20)
+	LAST_DTIME String @db.VarChar(14)
+	
+  @@ignore	
+}
+
+
+model MMSDIDTB {
+	MS_NO String @db.VarChar(10)
+	DID_NO String @db.VarChar(2)
+	DID_NM String? @db.VarChar(20)
+	DID_TYPE String? @db.VarChar(1)
+	CONTROLLER_IP String? @db.VarChar(15)
+	CONTROLLER_PORT String? @db.VarChar(10)
+	RELOAD_INTERVAL Int
+	THEME_TYPE String? @db.VarChar(1)
+	VOICE_FG String? @db.VarChar(1)
+	VOICE_SPEED Int
+	VOICE_VOLUME Int
+	CREATE_DTIME String @db.VarChar(14)
+	CREATE_ID String @db.VarChar(20)
+	LAST_ID String @db.VarChar(20)
+	LAST_DTIME String @db.VarChar(14)
+	
+  @@ignore	
+}
+
+model MMSKDSTB {
+	MS_NO String @db.VarChar(10)
+	KDS_NO String @db.VarChar(2)
+	KDS_NM String? @db.VarChar(20)
+	KDS_TYPE String? @db.VarChar(1)
+	CONTROLLER_IP String? @db.VarChar(15)
+	CONTROLLER_PORT String? @db.VarChar(10)
+	SPLIT_SCREEN String? @db.VarChar(2)
+	RELOAD_INTERVAL Int
+	BG_IMG_TYPE String? @db.VarChar(1)
+	CREATE_DTIME String @db.VarChar(14)
+	CREATE_ID String @db.VarChar(20)
+	LAST_ID String @db.VarChar(20)
+	LAST_DTIME String @db.VarChar(14)
+	
+  @@ignore	
+}
+
+model MKDSECTB {
+	MS_NO String @db.VarChar(10)
+	KDS_NO String @db.VarChar(2)
+	SEC_NO String @db.VarChar(2)
+	CREATE_DTIME String @db.VarChar(14)
+	CREATE_ID String @db.VarChar(20)
+	LAST_ID String @db.VarChar(20)
+	LAST_DTIME String @db.VarChar(14)
+	
+  @@ignore	
+}
+
+model SORDHDTB {
+	SALE_DATE String @db.VarChar(8)
+	ORD_UID String @db.VarChar(30)
+	ORD_STATUS String @db.VarChar(1)
+	ORD_TYPE String? @db.VarChar(1)
+	ETC_TYPE String? @db.VarChar(2)
+	ORD_SEQ Int
+	POS_NO String? @db.VarChar(2)
+	POS_TYPE String? @db.VarChar(10)
+	SALE_UID String? @db.VarChar(30)
+	ORD_QTY Int
+	ORD_MEMO String? @db.VarChar(1000)
+	ORD_SERVED_YN String? @db.VarChar(1)
+	ORDER_NO String? @db.VarChar(10)
+	PICKUP_PAGER_NO String? @db.VarChar(20)
+	PICKUP_CONTACT_HP String? @db.VarChar(13)
+	ORD_PICKUP_CALL_CNT Int
+	LAST_PICKUP_CALL_TIME String? @db.VarChar(14)
+	ORD_ORDERED_TIME String? @db.VarChar(14)
+	ORD_ACCEPTED_TIME String? @db.VarChar(14)
+	ORD_PREPARED_TIME String? @db.VarChar(14)
+	ORD_SERVED_TIME String? @db.VarChar(14)
+	ORD_CANCELLED_TIME String? @db.VarChar(14)
+	CREATE_DTIME String @db.VarChar(14)
+	CREATE_ID String @db.VarChar(20)
+	LAST_ID String @db.VarChar(20)
+	LAST_DTIME String @db.VarChar(14)
+	
+  @@ignore	
+}
