@@ -1,3 +1,3 @@
 @echo off
 cd /d "C:\Program Files (x86)\KDSnDID\App"
-npm run dev
+npm run dev 
