@@ -369,34 +369,3 @@ model MKDSECTB {
 	
   @@ignore	
 }
-
-model SORDHDTB {
-	SALE_DATE String @db.VarChar(8)
-	ORD_UID String @db.VarChar(30)
-	ORD_STATUS String @db.VarChar(1)
-	ORD_TYPE String? @db.VarChar(1)
-	ETC_TYPE String? @db.VarChar(2)
-	ORD_SEQ Int
-	POS_NO String? @db.VarChar(2)
-	POS_TYPE String? @db.VarChar(10)
-	SALE_UID String? @db.VarChar(30)
-	ORD_QTY Int
-	ORD_MEMO String? @db.VarChar(1000)
-	ORD_SERVED_YN String? @db.VarChar(1)
-	ORDER_NO String? @db.VarChar(10)
-	PICKUP_PAGER_NO String? @db.VarChar(20)
-	PICKUP_CONTACT_HP String? @db.VarChar(13)
-	ORD_PICKUP_CALL_CNT Int
-	LAST_PICKUP_CALL_TIME String? @db.VarChar(14)
-	ORD_ORDERED_TIME String? @db.VarChar(14)
-	ORD_ACCEPTED_TIME String? @db.VarChar(14)
-	ORD_PREPARED_TIME String? @db.VarChar(14)
-	ORD_SERVED_TIME String? @db.VarChar(14)
-	ORD_CANCELLED_TIME String? @db.VarChar(14)
-	CREATE_DTIME String @db.VarChar(14)
-	CREATE_ID String @db.VarChar(20)
-	LAST_ID String @db.VarChar(20)
-	LAST_DTIME String @db.VarChar(14)
-	
-  @@ignore	
-}
