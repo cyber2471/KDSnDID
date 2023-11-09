@@ -3,7 +3,7 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
+  provider = "sqlserver"
   url      = env("DATABASE_URL")
 }
 
@@ -229,143 +229,174 @@ model agencytb {
 }
 
 model MCODEMTB {
-	CODE_FG String @db.VarChar(3)
-	CODE String @db.VarChar(3)
-	CODE_IDX String? @db.VarChar(3)
-	CODE_NM String? @db.VarChar(50) 
-	CODE_SNM String? @db.VarChar(50) 
-	CODE_ETC String? @db.VarChar(20) 
-	USE_YN String @db.VarChar(1) 
-	REMARK String? @db.VarChar(1000)
-	CREATE_DTIME String @db.VarChar(14)
-	CREATE_ID String @db.VarChar(20)
-	LAST_ID String @db.VarChar(20)
-	LAST_DTIME String @db.VarChar(14)
+  CODE_FG      String  @db.VarChar(3)
+  CODE         String  @db.VarChar(3)
+  CODE_IDX     String? @db.VarChar(3)
+  CODE_NM      String? @db.VarChar(50)
+  CODE_SNM     String? @db.VarChar(50)
+  CODE_ETC     String? @db.VarChar(20)
+  USE_YN       String  @db.VarChar(1)
+  REMARK       String? @db.VarChar(1000)
+  CREATE_DTIME String  @db.VarChar(14)
+  CREATE_ID    String  @db.VarChar(20)
+  LAST_ID      String  @db.VarChar(20)
+  LAST_DTIME   String  @db.VarChar(14)
 
   @@ignore
 }
 
 model MDEVCFTB {
-	MS_NO String @db.VarChar(10)
-	DEVICE_FG String @db.VarChar(1)
-	MS_NM String? @db.VarChar(50)
-	DEVICE_CNT Int
-	ORD_STATUS_MGR String? @db.VarChar(1)
-	ORD_TYPE String? @db.VarChar(3)
-	ETC_TYPE String? @db.VarChar(3)
-	ORD_STATUS String? @db.VarChar(3)
-	ELAPSED_TIME_RGB String? @db.VarChar(3)
-	CONTROLLER_IP String? @db.VarChar(15)
-	CONTROLLER_PORT String? @db.VarChar(10)
-	SPLIT_SCREEN String? @db.VarChar(2)
-	RELOAD_INTERVAL Int
-	BG_IMG_TYPE String? @db.VarChar(1)
-	CREATE_DTIME String @db.VarChar(14)
-	CREATE_ID String @db.VarChar(20)
-	LAST_ID String @db.VarChar(20)
-	LAST_DTIME String @db.VarChar(14)
+  MS_NO            String  @db.VarChar(10)
+  DEVICE_FG        String  @db.VarChar(1)
+  MS_NM            String? @db.VarChar(50)
+  DEVICE_CNT       Int
+  ORD_STATUS_MGR   String? @db.VarChar(1)
+  ORD_TYPE         String? @db.VarChar(3)
+  ETC_TYPE         String? @db.VarChar(3)
+  ORD_STATUS       String? @db.VarChar(3)
+  ELAPSED_TIME_RGB String? @db.VarChar(3)
+  CONTROLLER_IP    String? @db.VarChar(15)
+  CONTROLLER_PORT  String? @db.VarChar(10)
+  SPLIT_SCREEN     String? @db.VarChar(2)
+  RELOAD_INTERVAL  Int
+  BG_IMG_TYPE      String? @db.VarChar(1)
+  CREATE_DTIME     String  @db.VarChar(14)
+  CREATE_ID        String  @db.VarChar(20)
+  LAST_ID          String  @db.VarChar(20)
+  LAST_DTIME       String  @db.VarChar(14)
 
   @@ignore
 }
 
 model MMSSECTB {
-	MS_NO String @db.VarChar(10)
-	SEC_NO String @db.VarChar(2)
-	SEC_NM String? @db.VarChar(20)
-	SEC_TYPE String? @db.VarChar(1)
-	CREATE_DTIME String @db.VarChar(14)
-	CREATE_ID String @db.VarChar(20)
-	LAST_ID String @db.VarChar(20)
-	LAST_DTIME String @db.VarChar(14)
+  MS_NO        String  @db.VarChar(10)
+  SEC_NO       String  @db.VarChar(2)
+  SEC_NM       String? @db.VarChar(20)
+  SEC_TYPE     String? @db.VarChar(1)
+  CREATE_DTIME String  @db.VarChar(14)
+  CREATE_ID    String  @db.VarChar(20)
+  LAST_ID      String  @db.VarChar(20)
+  LAST_DTIME   String  @db.VarChar(14)
 
   @@ignore
 }
 
 model MSECGDTB {
-	MS_NO String @db.VarChar(10)
-	SEC_NO String @db.VarChar(2)
-	GOODS_CD String @db.VarChar(20)
-	CREATE_DTIME String @db.VarChar(14)
-	CREATE_ID String @db.VarChar(20)
-	LAST_ID String @db.VarChar(20)
-	LAST_DTIME String @db.VarChar(14)
-	
-  @@ignore	
+  MS_NO        String @db.VarChar(10)
+  SEC_NO       String @db.VarChar(2)
+  GOODS_CD     String @db.VarChar(20)
+  CREATE_DTIME String @db.VarChar(14)
+  CREATE_ID    String @db.VarChar(20)
+  LAST_ID      String @db.VarChar(20)
+  LAST_DTIME   String @db.VarChar(14)
+
+  @@ignore
 }
 
 model SORDDTTB {
-	SALE_DATE String @db.VarChar(8)
-	ORD_UID String @db.VarChar(30)
-	LINE_NO String @db.VarChar(5)
-	ORD_ITEM_UID String? @db.VarChar(30)
-	ORD_STATUS String @db.VarChar(1)
-	GOODS_CD String? @db.VarChar(20)
-	GOODS_NM String? @db.VarChar(200)
-	GOODS_ORDER_TYPE String? @db.VarChar(1)
-	GOODS_QTY Int
-	CUSTOM_INFO String? @db.VarChar(400)
-	UPPER_GOODS_UID String? @db.VarChar(30)
-	ROOT_GOODS_UID String? @db.VarChar(30)
-	ORD_ORDERED_TIME String? @db.VarChar(14)
-	ORD_ACCEPTED_TIME String? @db.VarChar(14)
-	ORD_PREPARED_TIME String? @db.VarChar(14)
-	ORD_SERVED_TIME String? @db.VarChar(14)
-	ORD_CANCELLED_TIME String? @db.VarChar(14)
-	CREATE_DTIME String @db.VarChar(14)
-	CREATE_ID String @db.VarChar(20)
-	LAST_ID String @db.VarChar(20)
-	LAST_DTIME String @db.VarChar(14)
-	
-  @@ignore	
+  SALE_DATE          String  @db.VarChar(8)
+  ORD_UID            String  @db.VarChar(30)
+  LINE_NO            String  @db.VarChar(5)
+  ORD_ITEM_UID       String? @db.VarChar(30)
+  ORD_STATUS         String  @db.VarChar(1)
+  GOODS_CD           String? @db.VarChar(20)
+  GOODS_NM           String? @db.VarChar(200)
+  GOODS_ORDER_TYPE   String? @db.VarChar(1)
+  GOODS_QTY          Int
+  CUSTOM_INFO        String? @db.VarChar(400)
+  UPPER_GOODS_UID    String? @db.VarChar(30)
+  ROOT_GOODS_UID     String? @db.VarChar(30)
+  ORD_ORDERED_TIME   String? @db.VarChar(14)
+  ORD_ACCEPTED_TIME  String? @db.VarChar(14)
+  ORD_PREPARED_TIME  String? @db.VarChar(14)
+  ORD_SERVED_TIME    String? @db.VarChar(14)
+  ORD_CANCELLED_TIME String? @db.VarChar(14)
+  CREATE_DTIME       String  @db.VarChar(14)
+  CREATE_ID          String  @db.VarChar(20)
+  LAST_ID            String  @db.VarChar(20)
+  LAST_DTIME         String  @db.VarChar(14)
+
+  @@ignore
 }
 
-
 model MMSDIDTB {
-	MS_NO String @db.VarChar(10)
-	DID_NO String @db.VarChar(2)
-	DID_NM String? @db.VarChar(20)
-	DID_TYPE String? @db.VarChar(1)
-	CONTROLLER_IP String? @db.VarChar(15)
-	CONTROLLER_PORT String? @db.VarChar(10)
-	RELOAD_INTERVAL Int
-	THEME_TYPE String? @db.VarChar(1)
-	VOICE_FG String? @db.VarChar(1)
-	VOICE_SPEED Int
-	VOICE_VOLUME Int
-	CREATE_DTIME String @db.VarChar(14)
-	CREATE_ID String @db.VarChar(20)
-	LAST_ID String @db.VarChar(20)
-	LAST_DTIME String @db.VarChar(14)
-	
-  @@ignore	
+  MS_NO           String  @db.VarChar(10)
+  DID_NO          String  @db.VarChar(2)
+  DID_NM          String? @db.VarChar(20)
+  DID_TYPE        String? @db.VarChar(1)
+  CONTROLLER_IP   String? @db.VarChar(15)
+  CONTROLLER_PORT String? @db.VarChar(10)
+  RELOAD_INTERVAL Int
+  THEME_TYPE      String? @db.VarChar(1)
+  VOICE_FG        String? @db.VarChar(1)
+  VOICE_SPEED     Int
+  VOICE_VOLUME    Int
+  CREATE_DTIME    String  @db.VarChar(14)
+  CREATE_ID       String  @db.VarChar(20)
+  LAST_ID         String  @db.VarChar(20)
+  LAST_DTIME      String  @db.VarChar(14)
+
+  @@ignore
 }
 
 model MMSKDSTB {
-	MS_NO String @db.VarChar(10)
-	KDS_NO String @db.VarChar(2)
-	KDS_NM String? @db.VarChar(20)
-	KDS_TYPE String? @db.VarChar(1)
-	CONTROLLER_IP String? @db.VarChar(15)
-	CONTROLLER_PORT String? @db.VarChar(10)
-	SPLIT_SCREEN String? @db.VarChar(2)
-	RELOAD_INTERVAL Int
-	BG_IMG_TYPE String? @db.VarChar(1)
-	CREATE_DTIME String @db.VarChar(14)
-	CREATE_ID String @db.VarChar(20)
-	LAST_ID String @db.VarChar(20)
-	LAST_DTIME String @db.VarChar(14)
-	
-  @@ignore	
+  MS_NO           String  @db.VarChar(10)
+  KDS_NO          String  @db.VarChar(2)
+  KDS_NM          String? @db.VarChar(20)
+  KDS_TYPE        String? @db.VarChar(1)
+  CONTROLLER_IP   String? @db.VarChar(15)
+  CONTROLLER_PORT String? @db.VarChar(10)
+  SPLIT_SCREEN    String? @db.VarChar(2)
+  RELOAD_INTERVAL Int
+  BG_IMG_TYPE     String? @db.VarChar(1)
+  CREATE_DTIME    String  @db.VarChar(14)
+  CREATE_ID       String  @db.VarChar(20)
+  LAST_ID         String  @db.VarChar(20)
+  LAST_DTIME      String  @db.VarChar(14)
+
+  @@ignore
 }
 
 model MKDSECTB {
-	MS_NO String @db.VarChar(10)
-	KDS_NO String @db.VarChar(2)
-	SEC_NO String @db.VarChar(2)
-	CREATE_DTIME String @db.VarChar(14)
-	CREATE_ID String @db.VarChar(20)
-	LAST_ID String @db.VarChar(20)
-	LAST_DTIME String @db.VarChar(14)
-	
-  @@ignore	
+  MS_NO        String @db.VarChar(10)
+  KDS_NO       String @db.VarChar(2)
+  SEC_NO       String @db.VarChar(2)
+  CREATE_DTIME String @db.VarChar(14)
+  CREATE_ID    String @db.VarChar(20)
+  LAST_ID      String @db.VarChar(20)
+  LAST_DTIME   String @db.VarChar(14)
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model SORDHDTB {
+  SALE_DATE             String  @db.VarChar(8)
+  ORD_UID               String  @db.VarChar(30)
+  ORD_STATUS            String  @db.VarChar(1)
+  ORD_TYPE              String? @db.VarChar(1)
+  ETC_TYPE              String? @db.VarChar(2)
+  ORD_SEQ               Int
+  POS_NO                String? @db.VarChar(2)
+  POS_TYPE              String? @db.VarChar(10)
+  SALE_UID              String? @db.VarChar(30)
+  ORD_QTY               Int
+  ORD_MEMO              String? @db.VarChar(1000)
+  ORD_SERVED_YN         String? @db.VarChar(1)
+  ORDER_NO              String? @db.VarChar(10)
+  PICKUP_PAGER_NO       String? @db.VarChar(20)
+  PICKUP_CONTACT_HP     String? @db.VarChar(13)
+  ORD_PICKUP_CALL_CNT   Int
+  LAST_PICKUP_CALL_TIME String? @db.VarChar(14)
+  ORD_ORDERED_TIME      String? @db.VarChar(14)
+  ORD_ACCEPTED_TIME     String? @db.VarChar(14)
+  ORD_PREPARED_TIME     String? @db.VarChar(14)
+  ORD_SERVED_TIME       String? @db.VarChar(14)
+  ORD_CANCELLED_TIME    String? @db.VarChar(14)
+  CREATE_DTIME          String  @db.VarChar(14)
+  CREATE_ID             String  @db.VarChar(20)
+  LAST_ID               String  @db.VarChar(20)
+  LAST_DTIME            String  @db.VarChar(14)
+
+  @@ignore
 }
