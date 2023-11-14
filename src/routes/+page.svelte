@@ -1,8 +1,12 @@
+<!-- <script >
+
+  import { objectEnumNames } from "@prisma/client/runtime/library";
+
+</script> -->
 
 
 <body>
-
-<button onclick="openFullscreenPopup('http://www.naver.com');">KDSnDID</button>
+    <button onclick="openFullscreenExtend('http://www.naver.com');">KDSnDID</button>
 
 <script>
 function openFullscreenPopup(url) {
@@ -15,12 +19,29 @@ function openFullscreenPopup(url) {
         if (popupWindow.document.fullscreenEnabled) {
             popupWindow.document.documentElement.requestFullscreen();
             alert(popupWindow.document.fullscreenElement);
-        } else {
+        } else { 
             alert('Fullscreen mode is not enabled in your browser.');
         }
     };
 }
+
+function openFullscreenExtend(url) {
+    // 새 창을 열고 참조를 변수에 저장합니다.
+    if (document.documentElement.requestFullscreen) {
+                document.documentElement.requestFullscreen();
+            } else if (document.documentElement.mozRequestFullScreen) { // Firefox 지원
+                document.documentElement.mozRequestFullScreen();
+            } else if (document.documentElement.webkitRequestFullscreen) { // Chrome, Safari 및 Opera 지원
+                document.documentElement.webkitRequestFullscreen();
+            } else if (document.documentElement.msRequestFullscreen) { // Internet Explorer 지원
+                document.documentElement.msRequestFullscreen();
+            }
+
+     obj = document.getElementById("subscreen");
+     obj.src ="http://www2.atpos.co.kr";
+}
 </script>
 
+<iframe  id="subscreen" frameborder="0" width="100%" height="600px" src="https://www.astems.co.kr" title="Example Website"></iframe>
 </body>
 
