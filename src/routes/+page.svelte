@@ -38,10 +38,11 @@ function openFullscreenExtend(url) {
             }
 
      obj = document.getElementById("subscreen");
-     obj.src ="http://www2.atpos.co.kr";
+    //  obj.src ="http://www.kfckorea.com";
+     obj.src ="http://localhost:3000";
 }
 </script>
 
-<iframe  id="subscreen" frameborder="0" width="100%" height="600px" src="https://www.astems.co.kr" title="Example Website"></iframe>
+<iframe  id="subscreen" frameborder="0" width="100%" height="600px" src="https://www.astems.co.kr/" title="Example Website"></iframe>
 </body>
 

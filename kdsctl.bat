@@ -7,4 +7,5 @@ taskkill /IM "%PROCESS_NAME%" /F
 timeout /T 3
 
 cd /d "C:\Program Files (x86)\KDSnDID\App"
-npm run dev 
+@REM npm run dev 
+node build
